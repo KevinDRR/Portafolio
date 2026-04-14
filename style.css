@@ -304,6 +304,7 @@ section[id]{
     height: 325px;
     width: 100%;
     max-width: 608px;
+    border: 1px solid #fff;
 }
 /**/
 
@@ -373,9 +374,6 @@ section[id]{
 }
 .skill_bar{
     margin-bottom: 20px;
-}
-.slc_h{
-    border: 1px solid #fff;
 }
 .slcred{
     background-color: #FF5D6C;
@@ -685,7 +683,7 @@ footer{
         grid-template-rows: repeat(3, 1fr);
         margin: 25px 25px 50px;
     }
-    #chau{
+    .chau{
         display: none;
     }
 
