@@ -46,26 +46,30 @@ jQuery(document).ready(function ($) {
     });
 
     /* CARDS */
-    var cardPanels = ['cards', 'cards2', 'cards3', 'cards4', 'cards5'];
-    var cardBtns   = ['c_1',   'c_2',    'c_3',    'c_4',    'c_5'  ];
+    var cardTabs = [
+        { panel: 'cards',  btn: 'c_1' },
+        { panel: 'cards2', btn: 'c_2' },
+        { panel: 'cards3', btn: 'c_3' },
+        { panel: 'cards4', btn: 'c_4' },
+        { panel: 'cards5', btn: 'c_5' }
+    ];
 
     function switchCardTab(activeIndex) {
-        cardPanels.forEach(function (panel, i) {
-            if (i === activeIndex) {
-                $('#' + panel).fadeIn();
+        cardTabs.forEach(function (tab, i) {
+            var isActive = i === activeIndex;
+            if (isActive) {
+                $('#' + tab.panel).fadeIn();
             } else {
-                $('#' + panel).hide();
+                $('#' + tab.panel).hide();
             }
-        });
-        cardBtns.forEach(function (btn, i) {
-            $('#' + btn).toggleClass('cardred clicked', i === activeIndex);
+            $('#' + tab.btn).toggleClass('cardred clicked', isActive);
         });
     }
 
     switchCardTab(0);
 
-    cardBtns.forEach(function (btn, i) {
-        $('#' + btn).click(function () {
+    cardTabs.forEach(function (tab, i) {
+        $('#' + tab.btn).click(function () {
             switchCardTab(i);
         });
     });
